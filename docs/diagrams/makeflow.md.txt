@@ -1,0 +1,7 @@
+flowchart TD
+  start([Start]) --> sigma[make sigma<br/>Run σ⁰ TC GPT]
+  start --> rtc[make rtc<br/>Run γ⁰ RTC GPT]
+  sigma --> cogs["make cogs / cogs3059<br/>GeoTIFF → COG (GDAL COG)"]
+  rtc --> cogs
+  cogs --> stac[make stac<br/>Build STAC Items]
+  stac --> nb[Open notebooks<br/>jupyter lab]

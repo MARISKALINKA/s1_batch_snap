@@ -1,0 +1,12 @@
+**`docs/notebooks.md`**
+```markdown
+# Notebooks
+
+- `notebooks/S1_sigma0.ipynb`
+- `notebooks/S1_gamma0_RTC.ipynb`
+
+Launch:
+
+```bash
+conda activate s1-snap
+jupyter lab

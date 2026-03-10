@@ -1,0 +1,19 @@
+{
+  "type": "Feature",
+  "stac_version": "1.0.0",
+  "id": "TEMPLATE",
+  "bbox": [],
+  "geometry": {},
+  "collection": "s1-batch",
+  "properties": {
+    "proj:epsg": 3059,
+    "datetime": null
+  },
+  "assets": {
+    "data": {
+      "href": "",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized"
+    }
+  },
+  "links": []
+}

@@ -1,0 +1,9 @@
+# Download SAFE (CDSE)
+
+Use `scripts/download_safe_cdse.py` to query and fetch Sentinel‑1 products from the Copernicus Data Space Ecosystem.
+
+```bash
+python scripts/download_safe_cdse.py \
+  --aoi "POLYGON((24 56, 24 57, 25 57, 25 56, 24 56))" \
+  --start 2025-05-01 --end 2025-05-05 --type GRD \
+  --outdir data

@@ -1,0 +1,8 @@
+# Sentinel‑1 Batch Pipeline
+
+This site documents the end‑to‑end workflow for σ⁰ TC and γ⁰ RTC with ESA SNAP, COG generation with GDAL, and STAC metadata creation.
+
+> SNAP & toolboxes (STEP): [SNAP Download](https://step.esa.int/main/download/snap-download/)  
+> Unattended installation via install4j `-q`: [install4j options](https://www.ej-technologies.com/resources/install4j/help/doc/installers/options.html)  
+> GDAL Cloud‑Optimized GeoTIFF driver: [COG driver](https://gdal.org/en/stable/drivers/raster/cog.html)  
+> CDSE: official Sentinel access (see STEP page): [STEP SNAP Download](https://step.esa.int/main/download/snap-download/)

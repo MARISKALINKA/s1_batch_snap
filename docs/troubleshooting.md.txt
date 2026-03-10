@@ -1,0 +1,7 @@
+**`docs/troubleshooting.md`**
+```markdown
+# Troubleshooting
+
+- **SNAP not found**: confirm GPT at `C:\Program Files\snap\bin\gpt.exe`. SNAP install via install4j `-q -dir` is supported: [install4j options](https://www.ej-technologies.com/resources/install4j/help/doc/installers/options.html). [2](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/70503475/Bulk+Processing+with+GPT)
+- **COG warnings**: ensure GDAL>=3.1; see the official GDAL COG driver docs: [COG driver](https://gdal.org/en/stable/drivers/raster/cog.html). [3](https://gist.github.com/evalevanto/fad854f681e24079e8cd90359ba9aae7)
+- **Download issues**: CDSE is the current data access hub; check authentication or AOI. See STEP reference page: [SNAP Download](https://step.esa.int/main/download/snap-download/). [1](https://pypi.org/project/pyroSAR/)

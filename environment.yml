@@ -1,0 +1,23 @@
+name: s1-snap
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - scipy
+  - pandas
+  - shapely
+  - rasterio
+  - gdal
+  - matplotlib
+  - jupyterlab
+  - python-dotenv
+  - sentinelsat
+  - python-dateutil
+  - pip:
+      - pystac
+      - pystac-client
+      - tqdm
+      - rich

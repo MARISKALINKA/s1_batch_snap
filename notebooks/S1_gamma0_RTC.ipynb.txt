@@ -1,0 +1,106 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+     "# Sentinel‑1 GRD γ⁰ RTC (Terrain‑Flattened) Viewer\n",
+     "This notebook previews **Gamma0 RTC** products created using ESA SNAP RTC workflow."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+     "from pathlib import Path\n",
+     "import rasterio\n",
+     "import numpy as np\n",
+     "import matplotlib.pyplot as plt\n",
+     "\n",
+     "output_dir = Path(\"../outputs\")\n",
+     "gamma_files = sorted(output_dir.glob(\"*_RTC.tif\"))\n",
+     "gamma_db_files = sorted(output_dir.glob(\"*_RTC_db.tif\"))\n",
+     "\n",
+     "gamma_files[:3]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": ["## Preview γ⁰ Linear"]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+     "if gamma_files:\n",
+     "    f = gamma_files[0]\n",
+     "    with rasterio.open(f) as src:\n",
+     "        arr = src.read(1)\n",
+     "    plt.figure(figsize=(12,6))\n",
+     "    plt.imshow(arr, cmap='gray')\n",
+     "    plt.colorbar(label='Gamma0')\n",
+     "    plt.title(f\"RTC γ0 (Linear): {f.name}\")\n",
+     "else:\n",
+     "    print(\"No RTC gamma0 files found.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": ["## Preview γ⁰ (dB) Image"]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+     "if gamma_db_files:\n",
+     "    f = gamma_db_files[0]\n",
+     "    with rasterio.open(f) as src:\n",
+     "        arr = src.read(1)\n",
+     "    plt.figure(figsize=(12,6))\n",
+     "    plt.imshow(arr, cmap='gray')\n",
+     "    plt.colorbar(label='Gamma0 (dB)')\n",
+     "    plt.title(f\"RTC γ0 (dB): {f.name}\")\n",
+     "else:\n",
+     "    print(\"No RTC dB files.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": ["## Incidence Angle Visualization"]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+     "ia_files = list(output_dir.glob(\"*incidence*.tif\"))\n",
+     "if ia_files:\n",
+     "    f = ia_files[0]\n",
+     "    with rasterio.open(f) as src:\n",
+     "        arr = src.read(1)\n",
+     "    plt.figure(figsize=(12,6))\n",
+     "    plt.imshow(arr, cmap='viridis')\n",
+     "    plt.colorbar(label='Incidence Angle')\n",
+     "    plt.title(f\"Incidence Angle: {f.name}\")\n",
+     "else:\n",
+     "    print(\"No angle files.\")"
+   ]
+  }
+ ],
+ "metadata": {
+   "kernelspec": {"name": "python3", "language": "python", "display_name": "Python 3"},
+   "language_info": {"name": "python", "version": "3.11"}
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

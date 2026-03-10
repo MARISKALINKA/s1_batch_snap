@@ -1,0 +1,10 @@
+flowchart LR
+  A[SAFE scenes in ./data/] --> B[SNAP GPT: σ⁰ TC<br/>graphs/s1_grd_sigma0_tc.xml]
+  A --> C[SNAP GPT: γ⁰ RTC (Terrain‑Flattened)<br/>graphs/s1_grd_gamma0_rtc_tc.xml]
+  B --> D[GeoTIFF (σ⁰ TC) → ./outputs/]
+  C --> E[GeoTIFF (γ⁰ linear & dB + angle) → ./outputs/]
+  D --> F[COG conversion<br/>(GDAL COG driver)]
+  E --> F
+  F --> G[COG files → ./outputs/*.cog.tif]
+  G --> H[STAC Item JSON → ./outputs/stac/]
+  G --> I[Jupyter notebooks<br/>notebooks/S1_sigma0.ipynb<br/>notebooks/S1_gamma0_RTC.ipynb]

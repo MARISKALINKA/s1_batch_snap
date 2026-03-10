@@ -1,0 +1,10 @@
+**`docs/usage/cog_stac.md`**
+```markdown
+# Cloud‑Optimized GeoTIFF & STAC
+
+Create COGs:
+
+```bash
+make cogs
+make cogs3059
+make stac

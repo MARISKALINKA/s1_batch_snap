@@ -1,0 +1,58 @@
+<graph id="S1_GRD_Sigma0_TC">
+    <version>1.0</version>
+
+    <node id="Read">
+        <operator>Read</operator>
+        <parameters>
+            <file>${input}</file>
+        </parameters>
+    </node>
+
+    <node id="Apply-Orbit-File">
+        <operator>Apply-Orbit-File</operator>
+        <sources>
+            <source>Read</source>
+        </sources>
+        <parameters>
+            <orbitType>Sentinel Precise</orbitType>
+            <polyDegree>3</polyDegree>
+        </parameters>
+    </node>
+
+    <node id="Calibration">
+        <operator>Calibration</operator>
+        <sources>
+            <source>Apply-Orbit-File</source>
+        </sources>
+        <parameters>
+            <outputSigmaBand>true</outputSigmaBand>
+            <outputGammaBand>false</outputGammaBand>
+        </parameters>
+    </node>
+
+    <node id="Terrain-Correction">
+        <operator>Terrain-Correction</operator>
+        <sources>
+            <source>Calibration</source>
+        </sources>
+        <parameters>
+            <demName>Copernicus 30m Global DEM</demName>
+            <imgResamplingMethod>BILINEAR_INTERPOLATION</imgResamplingMethod>
+            <demResamplingMethod>BILINEAR_INTERPOLATION</demResamplingMethod>
+            <applyRadiometricNormalization>false</applyRadiometricNormalization>
+            <saveIncidenceAngleFromEllipsoid>true</saveIncidenceAngleFromEllipsoid>
+            <pixelSpacingInMeter>10.0</pixelSpacingInMeter>
+        </parameters>
+    </node>
+
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <source>Terrain-Correction</source>
+        </sources>
+        <parameters>
+            <file>${output}</file>
+            <formatName>GeoTIFF</formatName>
+        </parameters>
+    </node>
+</graph>
