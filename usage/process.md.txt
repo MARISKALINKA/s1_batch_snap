@@ -1,0 +1,7 @@
+**`docs/usage/process.md`**
+```markdown
+# Process with SNAP GPT
+
+```bash
+make sigma   # σ⁰ TC
+make rtc     # γ⁰ RTC (Terrain‑Flattened)
